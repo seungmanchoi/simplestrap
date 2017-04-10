@@ -443,16 +443,16 @@ return [
                 'custom_setting' => 'custom_setting.html',
             ],
         ],
-        'css3pie' => [
-            '_section' => '커스텀 / 고급',
-            '_type' => 'select',
-            'label' => 'CSS3PIE',
-            'description' => 'Internet Explorer 하위 버전에서 둥근 모서리 등을 사용할 수 있는 CSS3PIE를 사용합니다. (* 참고: css3pie.com)',
-            'options' => [
-                'N' => '아니요',
-                'Y' => '예'
-            ]
-        ],
+//        'css3pie' => [
+//            '_section' => '커스텀 / 고급',
+//            '_type' => 'select',
+//            'label' => 'CSS3PIE',
+//            'description' => 'Internet Explorer 하위 버전에서 둥근 모서리 등을 사용할 수 있는 CSS3PIE를 사용합니다. (* 참고: css3pie.com)',
+//            'options' => [
+//                'N' => '아니요',
+//                'Y' => '예'
+//            ]
+//        ],
         'content_panel_heading' => [
             '_section' => '커스텀 / 고급',
             '_type' => 'select',
@@ -473,16 +473,16 @@ return [
                 'N' => '숨기기'
             ],
         ],
-        'xe_css_remove' => [
-            '_section' => '커스텀 / 고급',
-            '_type' => 'select',
-            'label' => 'XE CSS 제거',
-            'description' => 'e.min.css (xe.css)를 제거하는 방식을 선택하세요. 제거하지 않으면 디자인에 문제가 발생할 수 있습니다.',
-            'options' => [
-                'script' => 'Javascript',
-                'N' => '제거하지 않음'
-            ]
-        ],
+//        'xe_css_remove' => [
+//            '_section' => '커스텀 / 고급',
+//            '_type' => 'select',
+//            'label' => 'XE CSS 제거',
+//            'description' => 'e.min.css (xe.css)를 제거하는 방식을 선택하세요. 제거하지 않으면 디자인에 문제가 발생할 수 있습니다.',
+//            'options' => [
+//                'script' => 'Javascript',
+//                'N' => '제거하지 않음'
+//            ]
+//        ],
     ],
     'support' => [
         'mobile' => true,
