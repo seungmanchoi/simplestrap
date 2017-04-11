@@ -13,9 +13,9 @@
     .sidebar .list-group-item:hover, .sidebar .list-group-item:focus,
     #jumbotron .btn-lg.btn-default:hover, #jumbotron .btn-lg.btn-default:focus,
     #sidebar .list-group-item:hover,
-    #sidebar .list-group-item:focus{background-color:{{$colorset_cc}};color:#fff}
+    #sidebar .list-group-item:focus{background-color:{{$themeSetting['colorset_cc']}};color:#fff}
     .sidebar .list-group-item.active, .sidebar .list-group-item.active:hover, .sidebar .list-group-item.active:focus,
-    .sidebar .list-group-item:hover, .sidebar .list-group-item:focus{background-color:{{$colorset_cc}} !important}
+    .sidebar .list-group-item:hover, .sidebar .list-group-item:focus{background-color:{{$themeSetting['colorset_cc']}} !important}
     .sidebar .list-group-item.active a, .sidebar .list-group-item.active:hover a, .sidebar .list-group-item.active:focus a,
     .sidebar .list-group-item:hover a, .sidebar .list-group-item:focus a{color:#fff}
     .sidebar .list-group-item:hover a>span[style], .sidebar .list-group-item:focus a>span[style]{color:#fff !important}
@@ -23,14 +23,14 @@
     .sidebar .list-group-item.active, .sidebar .list-group-item.active:hover, .sidebar .list-group-item.active:focus,
     .sidebar .list-group-item:hover, .sidebar .list-group-item:focus,
     #sidebar .list-group-item:hover,
-    #sidebar .list-group-item:focus{border-color:{{$colorset_cc}}}
+    #sidebar .list-group-item:focus{border-color:{{$themeSetting['colorset_cc']}}}
     .nav-pills>li>a,
     .list-group-item.active>.badge,
-    .dropdown-menu>li:hover>a>.badge{color:{{$colorset_cc}}}
-    .nav-pills>li>a>.badge{background-color:{{$colorset_cc}};color:#fff}
-    .nav-pills>.active>a>.badge{background-color:#fff;color:{{$colorset_cc}}}
-    .form-control:focus{border-color:{{$colorset_cc}};-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075)}
-    *:focus{outline-color:{{$colorset_cc}}!important}
+    .dropdown-menu>li:hover>a>.badge{color:{{$themeSetting['colorset_cc']}}}
+    .nav-pills>li>a>.badge{background-color:{{$themeSetting['colorset_cc']}};color:#fff}
+    .nav-pills>.active>a>.badge{background-color:#fff;color:{{$themeSetting['colorset_cc']}}}
+    .form-control:focus{border-color:{{$themeSetting['colorset_cc']}};-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075)}
+    *:focus{outline-color:{{$themeSetting['colorset_cc']}}!important}
 
     @if($config->get('jumbotron') == 'N' && $config->get('slide_use') == 'N' && $config->get('navbar_fixed') != 'N')
     body{padding-top:62px}
