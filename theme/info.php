@@ -40,11 +40,6 @@ return [
                     'description' => '홈페이지 이름을 클릭 시 이동 할 URL을 입력하세요.',
                 ],
                 'logo_img' => [
-                    '_type' => 'text',
-                    'label' => '홈페이지 주소',
-                    'description' => '홈페이지 이름을 클릭 시 이동 할 URL을 입력하세요.',
-                ],
-                'logo_img' => [
                     '_type' => 'image',
                     'label' => '로고 이미지',
                     'description' => '(옵션) 홈페이지 이름 대신 표시될 이미지를 올려주세요. (권장 높이 50px)',

@@ -24,13 +24,13 @@ jQuery(function($){
         $("#sidebar-toggle-button").click(function(){
             $(this).find(".fa").toggleClass("fa-angle-left fa-angle-right");
                 if($.cookie("simplestrap_full_frame") == 'true'){
-                $("#content").addClass("col-sm-{{ 12-(int)$config->get('sb_col') }} @if($li->site_frame=='sidebar_content') col-sm-push-{{ $config->get('sb_col') }}@endif").removeClass("col-sm-12");
-                $("#sidebar").addClass("col col-sm-{{ $config->get('sb_col') }} @if($li->site_frame=='sidebar_content') col-sm-pull-{{ 12-(int)$config->get('sb_col') }}@endif")
+                $("#content").addClass("col-sm-{{ 12-(int)$config->get('sb_col') }} @if($config->get('site_frame')=='sidebar_content') col-sm-push-{{ $config->get('sb_col') }}@endif").removeClass("col-sm-12");
+                $("#sidebar").addClass("col col-sm-{{ $config->get('sb_col') }} @if($config->get('site_frame')=='sidebar_content') col-sm-pull-{{ 12-(int)$config->get('sb_col') }}@endif")
                 .find(".panel").unwrap("<div class='panel-wrap col col-sm-{{ $config->get('sb_col') }}'></div>");
                 $.cookie("simplestrap_full_frame",null);
             } else {
-                $("#content").removeClass("col-sm-{{ 12-(int)$config->get('sb_col') }} @if($li->site_frame=='sidebar_content') col-sm-push-{{ $config->get('sb_col') }}@endif").addClass("col-sm-12");
-                $("#sidebar").removeClass("col col-sm-{{ $config->get('sb_col') }} @if($li->site_frame=='sidebar_content') col-sm-pull-{{ 12-(int)$config->get('sb_col') }}@endif")
+                $("#content").removeClass("col-sm-{{ 12-(int)$config->get('sb_col') }} @if($config->get('site_frame')=='sidebar_content') col-sm-push-{{ $config->get('sb_col') }}@endif").addClass("col-sm-12");
+                $("#sidebar").removeClass("col col-sm-{{ $config->get('sb_col') }} @if($config->get('site_frame')=='sidebar_content') col-sm-pull-{{ 12-(int)$config->get('sb_col') }}@endif")
                 .find(".panel").wrap("<div class='panel-wrap col-sm-{{ $config->get('sb_col') }}'></div>")
                 $.cookie("simplestrap_full_frame",'true');
             }

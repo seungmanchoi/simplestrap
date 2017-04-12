@@ -13,11 +13,9 @@ class Theme extends GenericTheme
 
         $themeSetting = $this->getThemeSettings($config);
 
-        $theme = $_theme = static::class;
+        view()->share('themeSetting', $themeSetting);
 
-        $view = $this->view($this->info('view', 'theme'));
-
-        return static::$handler->getViewFactory()->make($view, compact('config', '_theme', 'themeSetting'));
+        return parent::render();
     }
 
     protected function getThemeSettings($config)
