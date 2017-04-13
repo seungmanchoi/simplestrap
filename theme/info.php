@@ -215,39 +215,37 @@ return [
         ],
 
         /* section 점보트론 */
-        [
-            'section' => [
-                'class' => 'jumbotron-section',
-                'title' => '점보트론'
-            ],
-            'fields' => [
-                'jumbotron' => [
-                    '_type' => 'select',
-                    'label' => '점보트론 사용',
-                    'description' => '메인 페이지에서만 사용하지 않음\' 속성은 슬라이더와 같이 사용하실 수 있습니다.',
-                    'options' => [
-                        'no_main' => '메인 페이지에서만 사용하지 않음',
-                        'only_main' => '메인 페이지에서만 사용',
-                        'Y' => '예',
-                        'N' => '아니요',
-                    ]
-                ],
-                'jumbotron_hide_mid' => [
-                    '_type' => 'text',
-                    'label' => '점보트론 숨기기 모듈',
-                    'description' => '점보트론을 특정 페이지(모듈)에서 숨길 경우 사용하는 기능입니다. 모듈 ID를 입력해주세요. (쉼표로 구분합니다.)',
-                ],
-                'jumbotron_align' => [
-                    '_type' => 'select',
-                    'label' => '점보트론 글자 정렬',
-                    'options' => [
-                        'center' => '가운데 정렬',
-                        'left' => '왼쪽 정렬',
-                        'right' => '오른쪽 정렬',
-                    ],
-                ],
-            ]
-        ],
+//        [
+//            'section' => [
+//                'class' => 'jumbotron-section',
+//                'title' => '점보트론'
+//            ],
+//            'fields' => [
+//                'jumbotron' => [
+//                    '_type' => 'select',
+//                    'label' => '점보트론 사용',
+//                    'description' => '메인 페이지에서만 사용하지 않음\' 속성은 슬라이더와 같이 사용하실 수 있습니다.',
+//                    'options' => [
+//                        'Y' => '예',
+//                        'N' => '아니요',
+//                    ]
+//                ],
+//                'jumbotron_hide_mid' => [
+//                    '_type' => 'text',
+//                    'label' => '점보트론 숨기기 모듈',
+//                    'description' => '점보트론을 특정 페이지(모듈)에서 숨길 경우 사용하는 기능입니다. 모듈 ID를 입력해주세요. (쉼표로 구분합니다.)',
+//                ],
+//                'jumbotron_align' => [
+//                    '_type' => 'select',
+//                    'label' => '점보트론 글자 정렬',
+//                    'options' => [
+//                        'center' => '가운데 정렬',
+//                        'left' => '왼쪽 정렬',
+//                        'right' => '오른쪽 정렬',
+//                    ],
+//                ],
+//            ]
+//        ],
         
         /* section 슬라이드 */
         [
@@ -261,9 +259,8 @@ return [
                     'label' => '슬라이드 사용',
                     'description' => '슬라이드를 사용하는 모듈일 경우, 점보트론을 사용하지 않는 것을 추천합니다.',
                     'options' => [
-                        'only_main' => '자동 (메인 페이지에서만 사용)',
+                        'Y' => '예',
                         'N' => '아니요',
-                        'Y' => '예'
                     ]
                 ],
                 'slide_module' => [
@@ -469,6 +466,7 @@ return [
         'desktop' => true
     ],
     'editable' => [
+//        'custom/custom_top.blade.php',
         'theme.blade.php',
         'gnb.blade.php'
     ]

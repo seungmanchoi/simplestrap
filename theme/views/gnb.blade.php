@@ -54,6 +54,7 @@
                 @endforeach
             </ul>
         </div>
+
         <div class="collapse navbar-collapse navbar-right" id="sub-navbar">
             @if($config->get('navbar_search') == 'Y2')
             <form class="navbar-form navbar-left" action="{{ url() }}" method="get">
@@ -70,7 +71,7 @@
                 <li class="dropdown" id="dropdown-toggle-search">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search" area-hidden="true"></i><span class="visible-xs-inline-block"> 검색</span></a>
                     <div class="dropdown-menu dropdown-form" role="search">
-                        <form action="{getUrl()}" method="get">
+                        <form action="{{ url() }}" method="get">
                             <input type="hidden" name="vid" value="" />
                             <input type="hidden" name="mid" value="" />
                             <input type="hidden" name="act" value="IS" />
@@ -87,19 +88,31 @@
                 </li>
                 @endif
                 @if(Auth::check() && $config->get('navbar_login') != 'N')
-                <li cond="" class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@if($logged_info->profile_image->src)--><img src="{$logged_info->profile_image->src}" alt="" class="img-circle" /><!--@else--><i class="fa fa-user" area-hidden="true"></i><!--@end--> {$logged_info->nick_name}</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        @if(Auth::user()->getProfileImage())
+                            <img src="{{ Auth::user()->getProfileImage() }}" alt="" class="img-circle" />
+                        @endif
+                        <i class="fa fa-user" area-hidden="true"></i> {{ Auth::user()->getDisplayName() }}</a>
+
                     <ul class="dropdown-menu">
-                        <li id="profile-in-navbar" cond="$logged_info->profile_image->src">
-                            <a href="{getURL('act','dispMemberInfo')}">
-                                <img src="{$logged_info->profile_image->src}" class="img-circle" alt="Profile Image" cond="$logged_info->profile_image->src" /> <strong>{$logged_info->nick_name}</strong>
+                        @if(Auth::user()->getProfileImage())
+                        <li id="profile-in-navbar">
+                            <a href="{{ url('act','dispMemberInfo') }}">
+                                @if(Auth::user()->getProfileImage())
+                                <img src="{{ Auth::user()->getProfileImage() }}" class="img-circle" alt="Profile Image" /> <strong>{{ Auth::user()->getDisplayName() }}</strong>
+                                @endif
                             </a>
                         </li>
+                        @endif
 
-                        <li loop="$logged_info->menu_list=>$key, $val"><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{getUrl('act','dispMemberLogout')}"><i class="fa fa-sign-out" area-hidden="true"></i> {$lang->cmd_logout}</a></li>
-                        <li cond="$logged_info->is_admin=='Y'"><a href="{getUrl('','module','admin')}" target="_blank"><i class="fa fa-cog" area-hidden="true"></i> {$lang->cmd_management}</a></li>
+
+                        <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" area-hidden="true"></i> {{ xe_trans('xe::logout') }}</a></li>
+
+                        @if(auth()->user()->isAdmin())
+                        <li><a href="{{ route('user.settings') }}" target="_blank"><i class="fa fa-cog" area-hidden="true"></i> config</a></li>
+                        @endif
                     </ul>
                 </li>
                 @endif

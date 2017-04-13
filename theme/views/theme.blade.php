@@ -19,6 +19,13 @@
 @include($theme::view('css'))
 @include($theme::view('js'))
 
+{{-- inline style --}}
+{{ app('xe.frontend')->html('theme.style')->content("
+<style>
+    #fo_is *,ul.localNavigation *, .ul.subNavigation *{box-sizing:content-box !important;-webkit-box-sizing:content-box !important;-moz-box-sizing:content-box !important;}
+</style>
+")->load() }}
+
 <a href="#content" class="sr-only ss-skip">본문 바로가기</a>
 @include($theme::view('gnb'))
 
@@ -26,24 +33,13 @@
     @include($theme::view('carousel'))
 @endif
 
-@if($config->get('jumbotron') != 'N' && !in_array('custom_jumbotron', $config->get('custom')))
-    @include($theme::view('jumbotron'))
+@if(in_array('custom_top', $config->get('custom', [])))
+    @include($theme::view('custom.custom_top'))
 @endif
 
-@if($config->get('jumbotron') != 'N' && in_array('custom_jumbotron', $config->get('custom')))
-    @include($theme::view('custom_jumbotron'))
-@endif
-
-@if(in_array('custom_top', $config->get('custom')))
-    @include($theme::view('custom_top'))
-@endif
-
-{{-- inline style --}}
-{{ app('xe.frontend')->html('theme.style')->content("
-<style>
-    #fo_is *,ul.localNavigation *, .ul.subNavigation *{box-sizing:content-box !important;-webkit-box-sizing:content-box !important;-moz-box-sizing:content-box !important;}
-</style>
-")->load() }}
+@include($theme::view('container'))
+@include($theme::view('modal'))
+@include($theme::view('footer'))
 
 {{ app('xe.frontend')->bodyClass('desktop') }}
 {{ app('xe.frontend')->bodyClass($config->get('colorset', '')) }}
