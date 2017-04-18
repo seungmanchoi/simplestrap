@@ -1,7 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: seungman
- * Date: 2017. 4. 13.
- * Time: PM 2:52
- */
+<div>
+    custom_content_bottom.blade.php
+</div>

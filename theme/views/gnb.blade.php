@@ -7,7 +7,8 @@
             @if(Auth::check() && $config->get('navbar_login') != 'N') <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sub-navbar"><i class="fa fa-ellipsis-h" area-hidden="true"></i></button>@endif
             @if(!Auth::check() && $config->get('navbar_search') != 'N') <button type="button" class="navbar-toggle" data-toggle="modal" data-target="#modal-search"><i class="fa fa-search" area-hidden="true"></i> 검색</button> @endif
             <a class="navbar-brand @if($config->get('logo_img.path')) navbar-logo-img @endif" href="@if(!$config->get('index_url')) http://www.wincomi.com @else {{  $config->get('index_url' )}} @endif">
-                @if($config->get('logo_img')) <img src="{{ $config->get('logo_img') }}" alt="{{ $config->get('logo_title') }}" />
+                @if($config->get('logo_img'))
+                    <img src="{{ $config->get('logo_img.path') }}" alt="{{ $config->get('logo_title') }}" />
                 @else
                     @if($config->get('logo_title')) {{$config->get('logo_title')}} @else Simplestrap @endif
                 @endif
@@ -20,10 +21,9 @@
 
                     <li class="@if(count($menu['children']))) dropdown @endif @if($menu['selected']) active @endif">
                         <a href="{{ $menu['url'] }}" @if(count($menu['children'])) class="dropdown-toggle" data-toggle="dropdown" @endif>
-                            {{
-                                $menu_link = explod('|fa-', $menu['link'])
-                            }}
-                            @if($menu_link[1])
+                            {{-- */ $menu_link = explode('|fa-', $menu['link']) /* --}}
+
+                            @if(array_key_exists(1, $menu_link))
                             <i class="fa fa-{{ $menu_link[1] }}"></i>
                             @endif
 
@@ -37,10 +37,10 @@
                         @if(count($menu['children']))
                         <ul class="dropdown-menu">
                             @foreach($menu['children'] as $sub_menu)
-                                @if(strpos($sub_menu['url'], 'dropdown-header') !== false)
-                                    <li class="dropdown-header">{{ $sub_menu['link'] }}</li>
-                                @elseif($sub_menu['link'] != "----")
-                                    <li class="@if(count($menu['children']))) dropdown @endif @if($menu['selected']) active @endif">
+                                @if($sub_menu['link'] != "----")
+                                    <li @if(count($sub_menu['children'] || $sub_menu['selected']) ) class="@if(count($sub_menu['children']))) dropdown-submenu @endif @if($sub_menu['selected']) active @endif" @endif>
+                                        <a tabindex="-1" href="{{ $sub_menu['url'] }}">{{ $sub_menu['link'] }}</a>
+                                    </li>
                                 @else
                                     <li class="divider"></li>
                                 @endif
@@ -98,7 +98,7 @@
                     <ul class="dropdown-menu">
                         @if(Auth::user()->getProfileImage())
                         <li id="profile-in-navbar">
-                            <a href="{{ url('act','dispMemberInfo') }}">
+                            <a href="{{ route('user.settings') }}">
                                 @if(Auth::user()->getProfileImage())
                                 <img src="{{ Auth::user()->getProfileImage() }}" class="img-circle" alt="Profile Image" /> <strong>{{ Auth::user()->getDisplayName() }}</strong>
                                 @endif

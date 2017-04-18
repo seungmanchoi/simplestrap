@@ -1,6 +1,6 @@
 <footer id="footer" class="footer">
     <div class="container">
-        {{ $config->get('footer_copyright') }}
+        {!! $config->get('footer_copyright') !!}
 
         @if($config->get('footer_bottom_menu') == 'Y')
         <ul class="footer-list list-inline">
@@ -26,7 +26,7 @@
     </div>
 
     @if($config->get('footer_bottom'))
-    <div class="footer_bottom">{{ $config->get('footer_bottom') }}</div>
+    <div class="footer_bottom">{!! $config->get('footer_bottom') !!}</div>
     @endif
 
     <div id="hidden-xs" class="hidden-xs"></div>

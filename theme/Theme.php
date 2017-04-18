@@ -20,8 +20,8 @@ class Theme extends GenericTheme
 
     protected function getThemeSettings($config)
     {
-
         $colorset = $config->get('colorset');
+        $sb_colum = $config->get('sb_col');
 
         switch($colorset) {
             case 'primary': $colorset_cc = "#428bca"; break;
@@ -32,10 +32,13 @@ class Theme extends GenericTheme
         }
 
         $colorset = $colorset? $colorset : 'info';
-
+        $sb_colum = $sb_colum? $sb_colum : 'c_2';
+        $sb_col = explode('_', $sb_colum)[1];
+        
         return [
             'colorset' => $colorset,
-            'colorset_cc' => $colorset_cc
+            'colorset_cc' => $colorset_cc,
+            'sb_col' => $sb_col
         ];
     }
 }

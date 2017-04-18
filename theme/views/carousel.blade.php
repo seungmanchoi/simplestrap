@@ -17,36 +17,43 @@
         </div>
 
         @if($config->get('slide_c2_img'))
+        <div class="item">
             @if($config->get('slide_c2_url')) <a href="{{ $config->get('slide_c2_url') }}"> @endif
                 <img src="{{ $config->get('slide_c2_img.path') }}" alt="" />
             @if($config->get('slide_c2_url')) </a> @endif
             <div class="carousel-caption">
-                @if($config->get('slide_c2_text')) {{ $config->get('slide_c2_text') }} @endif
-                @if($config->get('slide_c2_desc')) {{ $config->get('slide_c2_desc') }} @endif
+                @if($config->get('slide_c2_text')) <h1>{{ $config->get('slide_c2_text') }}</h1> @endif
+                @if($config->get('slide_c2_desc')) <p>{{ $config->get('slide_c2_desc') }}</p> @endif
             </div>
+        </div>
         @endif
 
         @if($config->get('slide_c3_img'))
+        <div class="item">
             @if($config->get('slide_c3_url')) <a href="{{ $config->get('slide_c3_url') }}"> @endif
                 <img src="{{ $config->get('slide_c3_img.path') }}" alt="" />
             @if($config->get('slide_c3_url')) </a> @endif
             <div class="carousel-caption">
-                @if($config->get('slide_c3_text')) {{ $config->get('slide_c3_text') }} @endif
-                @if($config->get('slide_c3_desc')) {{ $config->get('slide_c3_desc') }} @endif
+                @if($config->get('slide_c3_text')) <h1>{{ $config->get('slide_c3_text') }}</h1> @endif
+                @if($config->get('slide_c3_desc')) <p>{{ $config->get('slide_c3_desc') }}</p> @endif
             </div>
+        </div>
         @endif
 
         @if($config->get('slide_c4_img'))
+        <div class="item">
             @if($config->get('slide_c4_url')) <a href="{{ $config->get('slide_c4_url') }}"> @endif
                 <img src="{{ $config->get('slide_c4_img.path') }}" alt="" />
             @if($config->get('slide_c4_url')) </a> @endif
             <div class="carousel-caption">
-                @if($config->get('slide_c4_text')) {{ $config->get('slide_c4_text') }} @endif
-                @if($config->get('slide_c4_desc')) {{ $config->get('slide_c4_desc') }} @endif
+                @if($config->get('slide_c4_text')) <h1>{{ $config->get('slide_c4_text') }}</h1> @endif
+                @if($config->get('slide_c4_desc')) <p>{{ $config->get('slide_c4_desc') }}</p> @endif
             </div>
+        </div>
         @endif
 
         @if($config->get('slide_c5_img'))
+        <div class="item">
             @if($config->get('slide_c5_url')) <a href="{{ $config->get('slide_c5_url') }}"> @endif
                 <img src="{{ $config->get('slide_c5_img.path') }}" alt="" />
             @if($config->get('slide_c5_url')) </a> @endif
@@ -54,6 +61,7 @@
                 @if($config->get('slide_c5_text')) {{ $config->get('slide_c5_text') }} @endif
                 @if($config->get('slide_c5_desc')) {{ $config->get('slide_c5_desc') }} @endif
             </div>
+        </div>
         @endif
 
     </div>

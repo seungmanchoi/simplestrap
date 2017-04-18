@@ -47,7 +47,7 @@ return [
                 'site_frame' => [
                     '_type' => 'select',
                     'label' => '프레임 형태',
-                    'description' => '서브 사이드바를 사용할 경우 \'./plugins/simplestrap/ ~~~ 검토 필요 ~~~ custom/custom_sub_sidebar.html\' 경로에 서브 사이드바에 추가할 내용을 업로드 해야 합니다.',
+                    'description' => '서브 사이드바를 사용할 경우 \'./plugins/simplestrap/custom/custom_sub_sidebar.html\' 경로에 서브 사이드바에 추가할 내용을 업로드 해야 합니다. ',
                     'options' => [
                         'sidebar_content' => '사이드바 + 컨텐츠',
                         'content_sidebar' => '컨텐츠 + 사이드바',
@@ -60,17 +60,12 @@ return [
                     'label' => '프레임 비율',
                     'description' => '* 사이드바: 컨텐츠 (프레임 형태가 \'컨텐츠\' 혹은 \'서브 사이드바\'가 포함될 경우에 작동하지 않습니다.)',
                     'options' => [
-                        '2' => '(1:5) 16% : 84%',
-                        '3' => '(1:3) 25% : 75%',
-                        '4' => '(1:2) 33% : 67%',
-                        '5' => '(5:7) 42% : 58%',
-                        '6' => '(1:1) 50% : 50%',
+                        'c_2' => '(1:5) 16% : 84%',
+                        'c_3' => '(1:3) 25% : 75%',
+                        'c_4' => '(1:2) 33% : 67%',
+                        'c_5' => '(5:7) 42% : 58%',
+                        'c_6' => '(1:1) 50% : 50%',
                     ]
-                ],
-                'site_frame_content' => [
-                    '_type' => 'text',
-                    'label' => '프레임 고정 모듈',
-                    'description' => '\'컨텐츠\' 프레임으로 고정할 모듈 ID를 입력하세요. 쉼표로 구분합니다. 예) home,main,content',
                 ],
                 'use_breadcrumb' => [
                     '_type' => 'select',
@@ -263,11 +258,6 @@ return [
                         'N' => '아니요',
                     ]
                 ],
-                'slide_module' => [
-                    '_type' => 'text',
-                    'label' => '슬라이드 표시 모듈',
-                    'description' => '메인 페이지 같이 슬라이더를 특정 페이지 (모듈)에서만 표시할 경우 사용하는 기능입니다. 모듈 ID를 입력해주세요. (쉼표로 구분합니다.)'
-                ],
                 'slide_img_height' => [
                     '_type' => 'text',
                     'label' => '슬라이드 이미지 높이',
@@ -405,30 +395,21 @@ return [
                 'title' => '커스텀 / 고급'
             ],
             'fields' => [
-                'premium' => [
-                    '_type' => 'select',
-                    'label' => '라이센스 제거',
-                    'description' => '* Premium Pack을 구입하신 분만 이 기능을 사용해주세요. 구입하지 않은 사이트에서 이 기능을 적용시 법적인 책임을 물을 수 있습니다.',
-                    'options' => [
-                        'N' => '아니요',
-                        'Y' => '예',
-                    ],
-                ],
                 'custom' => [
                     '_type' => 'checkbox',
                     'label' => '커스텀 파일',
                     'description' => '원하는 파일(위치)를 체크한 후 \'./layouts/simplestrap/custom/\' 경로에 커스텀 파일을 업로드하여 커스텀 파일을 불러옵니다.',
                     'options' => [
-                        'custom_style' => 'custom_style.css (CSS)',
-                        'custom_js' => 'custom_js.js (Javascript)',
-                        'custom_top' => 'custom_top.html (페이지 상단/컨테이너 상단)',
-                        'custom_bottom' => 'custom_bottom.html (페이지 최하단)',
-                        'custom_content_top' => 'custom_content_top.html (컨텐츠 상단)',
-                        'custom_content_bottom' => 'custom_content_bottom.html (컨텐츠 하단)',
-                        'custom_sidebar_top' => 'custom_sidebar_top.html (사이드바 상단)',
-                        'custom_sidebar_bottom' => 'custom_sidebar_bottom.html (사이드바 하단)',
-                        'custom_jumbotron' => 'custom_jumbotron.html (점보트론 교체)',
-                        'custom_setting' => 'custom_setting.html',
+                        'custom_style' => 'custom_style.blade.php (CSS)',
+                        'custom_js' => 'custom_js.blade.php (Javascript)',
+                        'custom_top' => 'custom_top.blade.php (페이지 상단/컨테이너 상단)',
+                        'custom_bottom' => 'custom_bottom.blade.php (페이지 최하단)',
+                        'custom_content_top' => 'custom_content_top.blade.php (컨텐츠 상단)',
+                        'custom_content_bottom' => 'custom_content_bottom.blade.php (컨텐츠 하단)',
+                        'custom_sidebar_top' => 'custom_sidebar_top.blade.php (사이드바 상단)',
+                        'custom_sidebar_bottom' => 'custom_sidebar_bottom.blade.php (사이드바 하단)',
+                        'custom_sub_sidebar' => 'sidebar_content_sidebar.blade.php (사이드 바)',
+                        'custom_login_modal' => 'custom_login_modal.blade.php (로그인 모달)',
                     ],
                 ],
                 'content_panel_heading' => [
@@ -436,9 +417,10 @@ return [
                     'label' => '전체화면 모드 숨기기',
                     'description' => '프레임 형태 설정과 상관없이 전체화면 모드 아이콘을 숨깁니다.',
                     'options' => [
-                        'Y' => '프레임 형태 설정에 따름',
-                        'N' => '숨기기',
+                        'use',
+                        'unuse',
                     ],
+
                 ],
                 'xe_validator_message' => [
                     '_type' => 'select',
@@ -466,8 +448,24 @@ return [
         'desktop' => true
     ],
     'editable' => [
-//        'custom/custom_top.blade.php',
+        'custom/custom_top.blade.php',
+        'custom/custom_content_bottom.blade.php',
+        'custom/custom_content_top.blade.php',
+        'custom/custom_js.blade.php',
+        'custom/custom_login_modal.blade.php',
+        'custom/custom_sidebar_bottom.blade.php',
+        'custom/custom_sidebar_top.blade.php',
+        'custom/custom_style.blade.php',
+        'custom/custom_sub_sidebar.blade.php',
+        'custom/custom_top.blade.php',
+        'carousel.blade.php',
+        'container.blade.php',
+        'css.blade.php',
+        'footer.blade.php',
+        'gnb.blade.php',
+        'js.blade.php',
+        'modal.blade.php',
+        'sidebar.blade.php',
         'theme.blade.php',
-        'gnb.blade.php'
     ]
 ];

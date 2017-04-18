@@ -1,8 +1,7 @@
 <div class="container" id="main-container">
     <div class="row @if($config->get('site_frame') != 'sidebar_content_sidebar') row-offcanvas @if($config->get('site_frame') == 'sidebar_content') row-offcanvas-left @elseif($config->get('site_frame') == 'content_sidebar') row-offcanvas-left @endif @endif" id="main-row">
-        <div id="content" class="col @if($config->get('site_frame') == 'sidebar_content_sidebar') col-sm-8 col-sm-push-2 @elseif($config->get('site_frame') != 'content') col-sm-{{ 12 - (int)$config->get('sb_col') }} @else col-sm-12 @endif @if($config->get('site_frame') == 'sidebar_content') col-sm-push-{{$config->get('sb_col')}} @endif">
+        <div id="content" class="col @if($config->get('site_frame') == 'sidebar_content_sidebar') col-sm-8 col-sm-push-2 @elseif($config->get('site_frame') != 'content') col-sm-{{ 12 - (int)$themeSetting['sb_col'] }} @else col-sm-12 @endif @if($config->get('site_frame') == 'sidebar_content') col-sm-push-{{$themeSetting['sb_col']}} @endif">
             <article class="content panel panel-default" itemscope itemtype="http://schema.org/Article">
-
                 @if($config->get('site_frame') != 'content' && $config->get('site_frame') != 'sidebar_content_sidebar' && $config->get('content_panel_heading') != 'N')
                 <div class="panel-heading">
                     <button id="sidebar-toggle-button" @if($config->get('site_frame') == 'sidebar_content') class="hidden-xs pull-left close" @elseif($config->get('site_frame') == 'content_sidebar' || !$config->get('site_frame')) class="hidden-xs pull-right close" @endif data-toggle="tooltip" data-title="전체화면 전환"><i @if($config->get('site_frame') == 'sidebar_content') class="fa fa-angle-left" @elseif($config->get('site_frame') == 'content_sidebar' || !$config->get('site_frame')) class="fa fa-angle-right" @endif area-hidden="true"></i></button>
@@ -34,6 +33,7 @@
                     @endif
 
                     {!! $content !!}
+
                     <div class="clearfix"></div>
 
                     @if(in_array('custom_content_bottom', $config->get('custom', [])))
@@ -44,7 +44,7 @@
         </div>
 
         @if($config->get('site_frame') != 'content')
-        <aside id="sidebar" class="sidebar col @if($config->get('site_frame') == 'sidebar_content_sidebar') col-sm-2 col-sm-pull-8 @else col-sm-{{ $config->get('sb_col') }} @if($config->get('site_frame') == 'sidebar_content') col-sm-pull-{{12 - (int)$config->get('sb_col')}} @endif @endif">
+        <aside id="sidebar" class="sidebar col @if($config->get('site_frame') == 'sidebar_content_sidebar') col-sm-2 col-sm-pull-8 @else col-sm-{{ $themeSetting['sb_col'] }} @if($config->get('site_frame') == 'sidebar_content') col-sm-pull-{{12 - (int)$themeSetting['sb_col']}} @endif @endif">
             @include($theme::view('sidebar'))
             <div class="clearfix"></div>
         </aside>
@@ -52,7 +52,7 @@
 
         @if($config->get('site_frame') == 'sidebar_content_sidebar')
         <aside id="sub-sidebar" class="sidebar col col-sm-2">
-            @include($theme::view('custom.custom_sub_sidebar.html'))
+            @include($theme::view('custom.custom_sub_sidebar'))
             <div class="clearfix"></div>
         </aside>
         @endif

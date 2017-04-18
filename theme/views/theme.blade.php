@@ -19,6 +19,14 @@
 @include($theme::view('css'))
 @include($theme::view('js'))
 
+@if(in_array('custom_style', $config->get('custom', [])))
+    @include($theme::view('custom.custom_style'))
+@endif
+
+@if(in_array('custom_js', $config->get('custom', [])))
+    @include($theme::view('custom.custom_js'))
+@endif
+
 {{-- inline style --}}
 {{ app('xe.frontend')->html('theme.style')->content("
 <style>
