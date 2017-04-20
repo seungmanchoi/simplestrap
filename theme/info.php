@@ -398,7 +398,7 @@ return [
                 'custom' => [
                     '_type' => 'checkbox',
                     'label' => '커스텀 파일',
-                    'description' => '원하는 파일(위치)를 체크한 후 \'./layouts/simplestrap/custom/\' 경로에 커스텀 파일을 업로드하여 커스텀 파일을 불러옵니다.',
+                    'description' => '원하는 파일(위치)를 체크한 후 \'./plugins/simplestrap/theme/view/custom/\' 경로에 커스텀 파일을 업로드하여 커스텀 파일을 불러옵니다.',
                     'options' => [
                         'custom_style' => 'custom_style.blade.php (CSS)',
                         'custom_js' => 'custom_js.blade.php (Javascript)',
