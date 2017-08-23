@@ -6,7 +6,7 @@
 {{-- stylesheet --}}
 {{ app('xe.frontend')->css([
     $theme::asset('css/bootstrap.min.css'),
-    $theme::asset('css/font-awesome.min.css'),
+    $theme::asset('css/font-awesome.css'),
     $theme::asset('css/simplestrap.min.css'),
 ])->load() }}
 

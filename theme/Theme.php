@@ -1,6 +1,8 @@
 <?php
 namespace Xpressengine\Plugins\Simplestrap\Theme;
 
+
+use Illuminate\Support\Facades\Validator;
 use Xpressengine\Theme\GenericTheme;
 
 class Theme extends GenericTheme
@@ -14,6 +16,24 @@ class Theme extends GenericTheme
         $themeSetting = $this->getThemeSettings($config);
 
         view()->share('themeSetting', $themeSetting);
+
+//        $date = strtotime('2017-04-07');
+//
+//        $start_date = '';
+//        $validator = Validator::make(
+//            [
+//
+//                'date' => $date
+//            ],
+//            [
+//
+//                'date' => 'required|date|after:start_date'
+//            ]
+//        );
+//
+//        dd($validator->errors(), $validator->getMessageBag()->toArray());
+
+//        dd(strtotime("yesterday"));
 
         return parent::render();
     }

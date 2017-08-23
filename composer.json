@@ -9,13 +9,13 @@
     "version": "1.0.0",
     "type": "xpressengine-plugin",
     "support": {
-        "email": "input@your.email"
+        "email": "developers@xpressengine.com"
     },
     "authors": [
         {
-            "name": "input your name",
-            "email": "input@your.email",
-            "homepage": "http://input.your.site",
+            "name": "XE Developers",
+            "email": "developers@xpressengine.com",
+            "homepage": "http://xpressengine.io",
             "role": "Developer"
         }
     ],
@@ -27,6 +27,11 @@
                     "class": "Xpressengine\\Plugins\\Simplestrap\\Theme\\Theme",
                     "name": "Simplestrap 테마",
                     "description": "The Theme supported by Simplestrap plugin."
+                },
+                "widget/board@list/skin/simplestrap@defaultskin": {
+                    "class": "Xpressengine\\Plugins\\Simplestrap\\Skins\\DefaultSkin",
+                    "name": "Simplestrap 기본 게시글 위젯스킨",
+                    "description": "The Skin supported by Simplestrap plugin."
                 }
             }
         }
@@ -34,7 +39,8 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Xpressengine\\Plugins\\Simplestrap\\": "src/"
+            "Xpressengine\\Plugins\\Simplestrap\\": "src/",
+            "Xpressengine\\Plugins\\Simplestrap\\Components\\": "components/"
         },
         "classmap": [
             "theme/Theme.php"
